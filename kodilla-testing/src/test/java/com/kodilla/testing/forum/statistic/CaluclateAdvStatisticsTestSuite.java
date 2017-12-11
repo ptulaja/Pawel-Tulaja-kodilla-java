@@ -7,12 +7,15 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.kodilla.testing.forum.statistic.BeforeEveryTest.statisticsForum;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CaluclateAdvStatisticsTestSuite {
 
     private static int testCounter = 0;
+
+    @BeforeEveryTest
 
     @Before
     public void beforeEveryTest() {
@@ -39,10 +42,7 @@ public class CaluclateAdvStatisticsTestSuite {
 
 
     @Test
-    public void test1() {
-
-        //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
+    public void testCalculateAvgWhenPost0() {
 
         //When
         statisticsForum.calculateAdvStatistics(testMock(10, 0, 0));
@@ -52,10 +52,7 @@ public class CaluclateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void test2() {
-
-        //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
+    public void testCalculateAvgWhenPost1000() {
 
         //When
         statisticsForum.calculateAdvStatistics(testMock(10, 1000, 0));
@@ -65,10 +62,7 @@ public class CaluclateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void test3() {
-
-        //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
+    public void testCalculateAvgWhenComments0() {
 
         //When
         statisticsForum.calculateAdvStatistics(testMock(10, 1, 0));
@@ -78,10 +72,7 @@ public class CaluclateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void test4() {
-
-        //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
+    public void testCalculateAvgWhenPostsMoreThenComments() {
 
         //When
         statisticsForum.calculateAdvStatistics(testMock(10, 10, 5));
@@ -91,10 +82,7 @@ public class CaluclateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void test5() {
-
-        //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
+    public void testCalculateAvgWhenPostsLowThenComments() {
 
         //When
         statisticsForum.calculateAdvStatistics(testMock(10, 5, 10));
@@ -104,10 +92,7 @@ public class CaluclateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void test6() {
-
-        //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
+    public void testCalculateAvgWhenUser0() {
 
         //When
         statisticsForum.calculateAdvStatistics(testMock(0, 0, 0));
@@ -117,10 +102,7 @@ public class CaluclateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void test7() {
-
-        //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
+    public void testCalculateAvgWhenUser100() {
 
         //When
         statisticsForum.calculateAdvStatistics(testMock(100, 100, 100));
