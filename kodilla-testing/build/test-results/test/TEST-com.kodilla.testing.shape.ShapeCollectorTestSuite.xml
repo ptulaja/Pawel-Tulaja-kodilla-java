@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.shape.ShapeCollectorTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-12-12T17:16:09" hostname="MacBook-Air-Pawel.local" time="0.007">
+  <properties/>
+  <testcase name="removeFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.005"/>
+  <testcase name="addFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
+  <testcase name="getFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <system-out><![CDATA[______TESTOWANIE OPROGRAMOWANIA______
+
+
+TEST #1
+
+
+TEST #2
+
+
+TEST #3
+
+
+______TESTY ZOSTALY ZAKONCZONE______
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

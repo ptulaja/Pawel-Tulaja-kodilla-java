@@ -1,9 +1,7 @@
 package com.kodilla.testing.forum.statistic;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,121 +11,113 @@ import static org.mockito.Mockito.when;
 
 public class CaluclateAdvStatisticsTestSuite {
 
-    private static int testCounter = 0;
+    public Statistics initializeStatisticsMock(int userNum, int postNum, int commentsNum) {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
 
-    @Mock
-    private Statistics statisticsMock;
-    private StatisticsForum statisticsForum = new StatisticsForum();
+        List<String> usersList = new ArrayList<String>();
 
-    @Before
-    public void beforeEveryTest() {
-        testCounter++;
-        System.out.println("\nTEST #" + testCounter + "\n");
-    }
-
-    public Statistics testMock(int userQuantity, int postQuantity, int commentsQuantity) {
-
-        List<Integer> usersList = new ArrayList<Integer>();
-
-        for (int i = 0; i < userQuantity; i++) {
-            Integer name = i;
+        for (int i = 0; i < userNum; i++) {
+            String name = "Jan";
+            name = name + i;
             usersList.add(name);
         }
 
         when(statisticsMock.usersNames()).thenReturn(usersList);
-        when(statisticsMock.postsCount()).thenReturn(postQuantity);
-        when(statisticsMock.commentsCount()).thenReturn(commentsQuantity);
+        when(statisticsMock.postsCount()).thenReturn(postNum);
+        when(statisticsMock.commentsCount()).thenReturn(commentsNum);
+
         return statisticsMock;
     }
 
 
     @Test
-    public void testCalculateAvgWhenPost0() {
-
+    public void testCalculateAveragePostUser1() {
         //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
+        StatisticsForum forumStatistics = new StatisticsForum();
         //When
-        statisticsForum.calculateAdvStatistics(testMock(10, 0, 0));
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(100, 1000, 0));
 
-        //Then
-        Assert.assertEquals(0, statisticsForum.getAvgPostsUser(), 0.01);
+        Assert.assertEquals(10.00, forumStatistics.getAvgPostsUser(), 0.000001);
     }
 
     @Test
-    public void testCalculateAvgWhenPost1000() {
-
+    public void testCalculateAveragePostUser2() {
         //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
-
+        StatisticsForum forumStatistics = new StatisticsForum();
         //When
-        statisticsForum.calculateAdvStatistics(testMock(10, 1000, 0));
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(0, 1000, 0));
 
-        //Then
-        Assert.assertEquals(100, statisticsForum.getAvgPostsUser(), 0.01);
+        Assert.assertEquals(-1, forumStatistics.getAvgPostsUser(), 0.000001);
     }
 
     @Test
-    public void testCalculateAvgWhenComments0() {
-
+    public void testCalculateAveragePostUser3() {
         //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
-
+        StatisticsForum forumStatistics = new StatisticsForum();
         //When
-        statisticsForum.calculateAdvStatistics(testMock(10, 1, 0));
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(100, 0, 0));
 
-        //Then
-        Assert.assertEquals(0.1, statisticsForum.getAvgPostsUser(), 0.01);
+        Assert.assertEquals(0, forumStatistics.getAvgPostsUser(), 0.000001);
     }
 
     @Test
-    public void testCalculateAvgWhenPostsMoreThenComments() {
-
+    public void testCalculateAverageCommUser1() {
         //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
-
+        StatisticsForum forumStatistics = new StatisticsForum();
         //When
-        statisticsForum.calculateAdvStatistics(testMock(10, 10, 5));
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(100, 1000, 0));
 
-        //Then
-        Assert.assertEquals(0.5, statisticsForum.getAvgCommentsPost(), 0.01);
+        Assert.assertEquals(0, forumStatistics.getAvgCommentsPost(), 0.000001);
     }
 
     @Test
-    public void testCalculateAvgWhenPostsLowThenComments() {
-
+    public void testCalculateAverageCommUser2() {
         //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
-
+        StatisticsForum forumStatistics = new StatisticsForum();
         //When
-        statisticsForum.calculateAdvStatistics(testMock(10, 5, 10));
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(100, 1000, 907));
 
-        //Then
-        Assert.assertEquals(1.0, statisticsForum.getAvgCommentsUser(), 0.01);
+        Assert.assertEquals(9.07, forumStatistics.getAvgCommentsPost(), 0.000001);
     }
 
     @Test
-    public void testCalculateAvgWhenUser0() {
-
+    public void testCalculateAverageCommPost1() {
         //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
-
+        StatisticsForum forumStatistics = new StatisticsForum();
         //When
-        statisticsForum.calculateAdvStatistics(testMock(0, 0, 0));
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(100, 0, 0));
 
-        //Then
-        Assert.assertEquals(0.0, statisticsForum.getAvgCommentsPost(), 0.01);
+        Assert.assertEquals(-1, forumStatistics.getAvgCommentsPost(), 0.000001);
     }
 
     @Test
-    public void testCalculateAvgWhenUser100() {
-
+    public void testCalculateAverageCommPost2() {
         //Given
-        StatisticsForum statisticsForum = new StatisticsForum();
-
+        StatisticsForum forumStatistics = new StatisticsForum();
         //When
-        statisticsForum.calculateAdvStatistics(testMock(100, 100, 100));
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(100, 1000, 0));
 
-        //Then
-        Assert.assertEquals(1.0, statisticsForum.getAvgCommentsPost(), 0.01);
+        Assert.assertEquals(0, forumStatistics.getAvgCommentsPost(), 0.000001);
+    }
+
+    @Test
+    public void testCalculateAverageCommPost3() {
+        //Given
+        StatisticsForum forumStatistics = new StatisticsForum();
+        //When
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(100, 1000, 907));
+
+        Assert.assertEquals(0.907, forumStatistics.getAvgCommentsPost(), 0.000001);
+    }
+
+    @Test
+    public void testCalculateAverageCommPost4() {
+        //Given
+        StatisticsForum forumStatistics = new StatisticsForum();
+        //When
+        forumStatistics.calculateAdvStatistics(initializeStatisticsMock(100, 1000, 1097));
+
+        Assert.assertEquals(1.097, forumStatistics.getAvgCommentsPost(), 0.000001);
     }
 }
