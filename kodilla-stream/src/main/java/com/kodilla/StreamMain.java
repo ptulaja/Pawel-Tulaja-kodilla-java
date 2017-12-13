@@ -1,8 +1,8 @@
-package com.kodilla.stream;
+package com.kodilla;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
 
-public class TestMain {
+public class StreamMain {
     public static void main(String[] args) {
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
