@@ -1,7 +1,6 @@
 package com.kodilla.stream.lambda;
 
-import com.kodilla.stram.reference.FunctionalCalculator;
-import com.kodilla.stream.lambda.ExpressionExecutor;
+import com.kodilla.stream.reference.FunctionalCalculator;
 
 
 public class StreamMainLambda {

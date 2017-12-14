@@ -1,4 +1,4 @@
-package com.kodilla.stram.reference;
+package com.kodilla.stream.reference;
 
 public class FunctionalCalculator {
 
