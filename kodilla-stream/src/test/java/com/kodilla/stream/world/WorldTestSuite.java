@@ -1,4 +1,4 @@
-package com.kodilla.stream.test;
+package com.kodilla.stream.world;
 
 import com.kodilla.stream.world.Continent;
 import com.kodilla.stream.world.Country;
