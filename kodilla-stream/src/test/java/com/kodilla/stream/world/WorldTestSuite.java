@@ -27,12 +27,12 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity(){
         //Given
-        Country country1 = new Country("CountryEu1", new BigDecimal("3213122"));
-        Country country2 = new Country("CountryEu2", new BigDecimal("32123231"));
-        Country country3 = new Country("CountryEu3", new BigDecimal("6542223"));
-        Country country4 = new Country("CountryAm1", new BigDecimal("21312"));
-        Country country5 = new Country("CountryAm2", new BigDecimal("32131231"));
-        Country country6 = new Country("CountryAm3", new BigDecimal("9887789"));
+        Country country1 = new Country("CountryEu1", new BigDecimal("32131223423434243"));
+        Country country2 = new Country("CountryEu2", new BigDecimal("321232314324234234234"));
+        Country country3 = new Country("CountryEu3", new BigDecimal("65422234234234"));
+        Country country4 = new Country("CountryAm1", new BigDecimal("2131233234234234242344234"));
+        Country country5 = new Country("CountryAm2", new BigDecimal("321312313234234234"));
+        Country country6 = new Country("CountryAm3", new BigDecimal("988778942342342342342342342342343123"));
         Country country7 = new Country("CountryAs1", new BigDecimal("214214142"));
         Country country8 = new Country("CountryAs2", new BigDecimal("2142141"));
         Country country9 = new Country("CountryAs3", new BigDecimal("213124"));
@@ -60,7 +60,7 @@ public class WorldTestSuite {
         BigDecimal worldQuantity = theWorld.getPeopleQuantity();
 
         //Then
-        BigDecimal expectedWorldQuantity = BigDecimal.valueOf(300488315);
+        BigDecimal expectedWorldQuantity = new BigDecimal ("988778942344473897162399859927393709");
         Assert.assertEquals(expectedWorldQuantity, worldQuantity);
 
     }
