@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.OrderService;
+package com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllClass;
 
 public class User {
 

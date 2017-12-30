@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.OrderService;
+package com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllClass;
 
 import java.time.LocalDateTime;
 
@@ -8,7 +8,9 @@ public class OrderRequestRetriever {
 
         User user = new User("Pablo_ski", "Pawel", "Tulaja", "Warszawa");
         LocalDateTime orderFrom = LocalDateTime.of(2017, 12, 27, 12, 00);
+        Products products = new  Products("Water",12.99);
+        Order order = new Order(products, 4);
 
-        return new OrderRequest(user, orderFrom);
+        return new OrderRequest(user, orderFrom, products, order);
     }
 }
