@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllClass;
+package com.kodilla.good.patterns.challenges_9_2;
 
 import java.time.LocalDateTime;
 

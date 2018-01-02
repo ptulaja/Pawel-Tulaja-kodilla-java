@@ -1,8 +1,6 @@
-package com.kodilla.good.patterns.challenges.OrderServiceAllegro;
+package com.kodilla.good.patterns.challenges_9_2;
 
-import com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllClass.*;
-
-public class OrderServicesAllegroRunner {
+public class OrderServiceRuner {
     public static void main(String[] args) {
 
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();

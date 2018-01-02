@@ -1,8 +1,4 @@
-package com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllClass;
-
-import com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllInterface.InformationService;
-import com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllInterface.OrderRepository;
-import com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllInterface.OrderService;
+package com.kodilla.good.patterns.challenges_9_2;
 
 public class OrderProcessor {
 

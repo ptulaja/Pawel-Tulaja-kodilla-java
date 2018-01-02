@@ -1,6 +1,4 @@
-package com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllClass;
-
-import com.kodilla.good.patterns.challenges.OrderServiceAllegro.AllInterface.InformationService;
+package com.kodilla.good.patterns.challenges_9_2;
 
 public class MailService implements InformationService {
     public void inform(User user, Order order) {
