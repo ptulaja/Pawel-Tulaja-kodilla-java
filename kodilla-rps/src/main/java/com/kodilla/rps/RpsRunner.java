@@ -39,13 +39,11 @@ public class RpsRunner {
                     humanScore++;
                     ScoreTable.checkScore(first_name, humanScore, comScore);
                 } else {
-                     assert  (("Rock".equals(com) && "Scissors".equals(player)) ||
-                            ("Scissors".equals(com) && "Paper".equals(player)) ||
-                            ("Paper".equals(com) && "Rock".equals(player)));
                     System.out.println(first_name + " PRZEGRALES !");
                     comScore++;
                     ScoreTable.checkScore(first_name, humanScore, comScore);
                 }
+
                 if (humanScore == endingScore || comScore == endingScore) {
                     System.out.println("WYNIK KONCOWY!");
                     break;
