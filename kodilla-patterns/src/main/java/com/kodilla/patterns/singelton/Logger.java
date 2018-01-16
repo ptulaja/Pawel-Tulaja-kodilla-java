@@ -1,4 +1,4 @@
-package com.kodilla.patterns.singleton;
+package com.kodilla.patterns.singelton;
 
 public class Logger {
     private static Logger loggerInstance = null;
