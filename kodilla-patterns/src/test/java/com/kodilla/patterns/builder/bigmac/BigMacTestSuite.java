@@ -9,14 +9,14 @@ public class BigMacTestSuite {
     public void testBigMacCheck(){
 
         //Given
-        BigMac bigmac = new BigMac.BigmacBuilder()
+        BigMac bigmac = BigMac.BigMacBuilder.aBigMac()
                 .burgers(1)
                 .roll("Zytnia")
                 .sauce("1000 wysp")
-                .ingredient("ser")
-                .ingredient("cebula")
-                .ingredient("bekon")
-                .ingredient("pomidor")
+                .ingredients("ser")
+                .ingredients("cebula")
+                .ingredients("bekon")
+                .ingredients("pomidor")
                 .build();
         System.out.println(bigmac);
 

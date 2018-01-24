@@ -45,29 +45,37 @@ public class BigMac {
                 '}';
     }
 
-    public static class BigmacBuilder {
+    public static final class BigMacBuilder {
         private String roll;
         private int burgers;
         private String sauce;
-        private List<String> ingredients = new ArrayList<>();
+        private List<String> ingredients = new ArrayList<>();;
 
-        public BigmacBuilder roll(String roll) {
+        private BigMacBuilder() {
+
+        }
+
+        public static BigMacBuilder aBigMac() {
+            return new BigMacBuilder();
+        }
+
+        public BigMacBuilder roll(String roll) {
             this.roll = roll;
             return this;
         }
 
-        public BigmacBuilder burgers(int burgers) {
+        public BigMacBuilder burgers(int burgers) {
             this.burgers = burgers;
             return this;
         }
 
-        public BigmacBuilder sauce(String sauce) {
+        public BigMacBuilder sauce(String sauce) {
             this.sauce = sauce;
             return this;
         }
 
-        public BigmacBuilder ingredient(String ingredient) {
-            ingredients.add(ingredient);
+        public BigMacBuilder ingredients(String ingredient) {
+            this.ingredients.add(ingredient);
             return this;
         }
 

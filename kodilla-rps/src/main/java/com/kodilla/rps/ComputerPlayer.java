@@ -2,15 +2,25 @@ package com.kodilla.rps;
 
 import java.util.Random;
 
-public class ComputerPlayer implements RpsPlayer {
+public class ComputerPlayer {
+    private String computerName;
+    private String quantity;
 
-    private final Random random;
-
-    public ComputerPlayer(Random random) {
-        this.random = random;
+    public ComputerPlayer(String computerName) {
+        this.computerName = computerName;
     }
 
-    public String play() {
-        return OPTIONS[this.random.nextInt(OPTIONS.length)];
+    public String getComputerName() {
+        return computerName;
+    }
+
+    public String setQuantity(RandomChoice rpsQuantity) {
+        Random random = new Random();
+        quantity = rpsQuantity.randomChoice(random.nextInt(3) + 1);
+        return quantity;
+    }
+
+    public String getQuantity() {
+        return quantity;
     }
 }
