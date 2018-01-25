@@ -1,0 +1,32 @@
+__________TEST__________ 
+
+
+Status testu: ROZPOCZETY 
+
+1, John, Smith
+2, Zachary, Lee
+3, Stephanie, Kovalsky
+4, Thomas, Landgren
+5, John, Thomson
+
+Status testu: ZAKONCZONY 
+
+__________TEST__________ 
+
+
+Status testu: ROZPOCZETY 
+
+-> POLACZENIE AKTYWNE <-
+
+Status testu: ZAKONCZONY 
+
+__________TEST__________ 
+
+
+Status testu: ROZPOCZETY 
+
+John, Smith, 2
+Zachary, Lee, 2
+
+Status testu: ZAKONCZONY 
+

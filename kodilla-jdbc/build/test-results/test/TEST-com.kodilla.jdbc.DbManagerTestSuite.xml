@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.jdbc.DbManagerTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-01-25T16:24:52" hostname="MacBook-Air-Pawel.local" time="0.489">
+  <properties/>
+  <testcase name="testSelectUsers" classname="com.kodilla.jdbc.DbManagerTestSuite" time="0.471"/>
+  <testcase name="testConnect" classname="com.kodilla.jdbc.DbManagerTestSuite" time="0.006"/>
+  <testcase name="testSelectUsersAndPosts" classname="com.kodilla.jdbc.DbManagerTestSuite" time="0.011"/>
+  <system-out><![CDATA[__________TEST__________ 
+
+
+Status testu: ROZPOCZETY 
+
+1, John, Smith
+2, Zachary, Lee
+3, Stephanie, Kovalsky
+4, Thomas, Landgren
+5, John, Thomson
+
+Status testu: ZAKONCZONY 
+
+__________TEST__________ 
+
+
+Status testu: ROZPOCZETY 
+
+-> POLACZENIE AKTYWNE <-
+
+Status testu: ZAKONCZONY 
+
+__________TEST__________ 
+
+
+Status testu: ROZPOCZETY 
+
+John, Smith, 2
+Zachary, Lee, 2
+
+Status testu: ZAKONCZONY 
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

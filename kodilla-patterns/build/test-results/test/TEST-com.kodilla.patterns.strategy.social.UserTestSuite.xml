@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.patterns.strategy.social.UserTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-01-25T16:24:55" hostname="MacBook-Air-Pawel.local" time="0.003">
+  <properties/>
+  <testcase name="testDefaultSharingStrategies" classname="com.kodilla.patterns.strategy.social.UserTestSuite" time="0.002"/>
+  <testcase name="testIndividualSharingStrategy" classname="com.kodilla.patterns.strategy.social.UserTestSuite" time="0.0"/>
+  <system-out><![CDATA[User1: Facebook
+User2: Snapchat
+User3: Twitter
+User 3 przypisany do przypadku testowego: Twitter
+User 3 zmiania przypisanie przypadku testowego na: Snapchat
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
