@@ -13,12 +13,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
+    @Autowired
+    ProductDao productDao;
+    @Autowired
+    ItemDao itemDao;
 
     @Before
     public void before() {
@@ -63,7 +69,9 @@ public class InvoiceDaoTestSuite {
         product5.getItems().add(item5);
         product6.getItems().add(item6);
 
-        Invoice invoice = new Invoice("1");
+        List<Item> itemList = new ArrayList<>();
+
+        Invoice invoice = new Invoice("FV 255/322/111", itemList);
 
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
@@ -80,15 +88,54 @@ public class InvoiceDaoTestSuite {
         item6.setInvoice(invoice);
 
         //When
+        productDao.save(product1);
+        productDao.save(product3);
+        productDao.save(product6);
         invoiceDao.save(invoice);
-        int id = invoice.getId();
 
         //Then
-        System.out.println("\n__________ Wynik testu: POZYTYWNY __________\n");
-        Assert.assertNotEquals(0, id);
+        Assert.assertNotEquals(0, invoice);
+        Assert.assertEquals("FV 255/322/111", invoice.getNumber());
+        Assert.assertEquals("Kajzerka", product1.getName());
+        Assert.assertEquals("Jogurt", product3.getName());
+        Assert.assertEquals("Maslo", product6.getName());
 
         //CleanUp
-        invoiceDao.delete(id);
+        try {
+            int product1delate = product1.getId();
+            int product2delate = product2.getId();
+            int product3delate = product3.getId();
+            int product4delate = product4.getId();
+            int product5delate = product5.getId();
+            int product6delate = product6.getId();
+
+            int item1delate = item1.getId();
+            int item2delate = item2.getId();
+            int item3delate = item3.getId();
+            int item4delate = item4.getId();
+            int item5delate = item5.getId();
+            int item6delate = item6.getId();
+
+            int invoiceId = invoice.getId();
+
+            productDao.delete(product1delate);
+            productDao.delete(product2delate);
+            productDao.delete(product3delate);
+            productDao.delete(product4delate);
+            productDao.delete(product5delate);
+            productDao.delete(product6delate);
+
+            itemDao.delete(item1delate);
+            itemDao.delete(item2delate);
+            itemDao.delete(item3delate);
+            itemDao.delete(item4delate);
+            itemDao.delete(item5delate);
+            itemDao.delete(item6delate);
+
+            invoiceDao.delete(invoiceId);
+
+        } catch (Exception e) {
+        }
     }
 }
 

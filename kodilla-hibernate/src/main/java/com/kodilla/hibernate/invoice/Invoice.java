@@ -12,23 +12,20 @@ public class Invoice {
     private String number;
     private List<Item> items = new ArrayList<>();
 
-    public Invoice(String number) {
-        this.number = number;
-    }
-
     public Invoice() {
     }
 
+    public Invoice(String number, List<Item> items) {
+        this.number = number;
+        this.items = items;
+    }
+
     @Id
-    @NotNull
     @GeneratedValue
+    @NotNull
     @Column(name = "ID", unique = true)
     public int getId() {
         return id;
-    }
-
-    private void setId(int id) {
-        this.id = id;
     }
 
     @NotNull
@@ -37,21 +34,26 @@ public class Invoice {
         return number;
     }
 
-    private void setNumber(String number) {
-        this.number = number;
-    }
-
     @OneToMany(
             targetEntity = Item.class,
             mappedBy = "invoice",
             cascade = CascadeType.ALL,
-            fetch= FetchType.LAZY
+            fetch = FetchType.EAGER
     )
+    @Column(name = "ITEM_ID", nullable = false)
     public List<Item> getItems() {
         return items;
     }
 
-    private void setItems(List<Item> items) {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 }

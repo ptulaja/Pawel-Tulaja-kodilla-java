@@ -52,14 +52,21 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //Then
-        Assert.assertNotEquals(0,softwareMachineId);
-        Assert.assertNotEquals(0,dataMaestersId);
-        Assert.assertNotEquals(0,greyMatterId);
+        Assert.assertNotEquals(0, softwareMachineId);
+        Assert.assertNotEquals(0, dataMaestersId);
+        Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        companyDao.delete(softwareMachineId);
-        companyDao.delete(dataMaestersId);
-        companyDao.delete(greyMatterId);
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+            employeeDao.delete(johnSmith);
+            employeeDao.delete(stephanieClarckson);
+            employeeDao.delete(lindaKovalsky);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
 
     @Test
@@ -70,48 +77,50 @@ public class CompanyDaoTestSuite {
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
         employeeDao.save(johnSmith);
-        int employeeOneId = johnSmith.getId();
+        int employee1 = johnSmith.getId();
         employeeDao.save(stephanieClarckson);
-        int employeeTwoId = stephanieClarckson.getId();
+        int employee2 = stephanieClarckson.getId();
         employeeDao.save(lindaKovalsky);
-        int employeeThreeId = lindaKovalsky.getId();
+        int employee3 = lindaKovalsky.getId();
 
-        //when
+        //When
         List<Employee> showLastname = employeeDao.retrieveEmployeeLastname("Kovalsky");
 
         //Then
         Assert.assertEquals(1, showLastname.size());
 
         //CleanUp
-        employeeDao.delete(employeeOneId);
-        employeeDao.delete(employeeTwoId);
-        employeeDao.delete(employeeThreeId);
+        employeeDao.delete(employee1);
+        employeeDao.delete(employee2);
+        employeeDao.delete(employee3);
     }
 
     @Test
     public void testCompanyNamedNativeQuery() {
         //Given
-        Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
-        Company greyMatter = new Company("Grey Matter");
+        Company company1 = new Company("Software Machine");
+        Company company2 = new Company("Data Maesters");
+        Company company3 = new Company("Grey Matter");
 
-        companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
-        companyDao.save(dataMaesters);
-        int dataMaestersId = dataMaesters.getId();
-        companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
+        //when
+        companyDao.save(company1);
+        companyDao.save(company2);
+        companyDao.save(company3);
 
-        //When
-        List<Company> showCompanyName = companyDao.retrieveCompanyNameFirstLetters("Gr");
+        List<Company> showCompanyName = companyDao.retrieveCompanyNameFirstLetters("dat");
 
         //Then
         Assert.assertEquals(1, showCompanyName.size());
 
         //CleanUp
-        companyDao.delete(softwareMachineId);
-        companyDao.delete(dataMaestersId);
-        companyDao.delete(greyMatterId);
+        try {
+            companyDao.delete(company1);
+            companyDao.delete(company2);
+            companyDao.delete(company3);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
+
 }
 
